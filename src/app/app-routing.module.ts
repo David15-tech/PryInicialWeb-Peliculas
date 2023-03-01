@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'editar-pelicula/:id',component:EditarpeliculaComponent},
   {path:'**',component:HomeComponent},//si existe cualquier enlace sin ruta, se ira home
 ];
-
+//es
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
