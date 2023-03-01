@@ -1,0 +1,41 @@
+<div class="container">
+    <h2>{{titulo}}</h2>
+    <div class="message success" *ngIf="status=='success'">
+        La pelicula se ha guardado correctamente, puedes verla <a [routerLink]="['/pelicula',idGuardado]">aquí</a>.
+    </div>
+    <div class="message failed" *ngIf="status=='failed'">
+        La pelicula no se ha podido guardar.
+    </div>
+    <form #peliculaForm="ngForm" (ngSubmit)="guardarPelicula(peliculaForm)">
+        <p>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="pelicula.nombre" required>
+            <span *ngIf="nombre.touched && !nombre.valid">
+                Nombre obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="tipo">Tipo</label>
+            <input type="text" name="tipo" #tipo="ngModel" [(ngModel)]="pelicula.tipo" required>
+            <span *ngIf="tipo.touched && !tipo.valid">
+                Tipo obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="anio">Año</label>
+            <input type="number" name="anio" #anio="ngModel" [(ngModel)]="pelicula.anio" required>
+        </p>
+        <p>
+            <label for="precio">Precio</label>
+            <input type="number" name="precio" #precio="ngModel" [(ngModel)]="pelicula.precio" required>
+        </p>
+        <p>
+            <label for="imagen">Imagen</label>
+            <span *ngIf="pelicula.imagen" style="float: none;">
+                <img src="{{url+'get-imagen/'+pelicula.imagen}}" style="width: 100px;">
+            </span>
+            <input type="file" #archivoImagen placeholder="Seleccionar imagen" (change)="imagenChangeEvent($event)">
+        </p>
+        <input type="submit" value="Guardar" [disabled]="!peliculaForm.form.valid">
+    </form>
+</div>
