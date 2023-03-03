@@ -6,6 +6,8 @@ import { CreatepeliculaComponent } from './components/createpelicula/createpelic
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { DetallepeliculaComponent } from './components/detallepelicula/detallepelicula.component';
 import { EditarpeliculaComponent } from './components/editarpelicula/editarpelicula.component';
+import { LoginComponent } from './components/login/login.component';
+import { GuardarusuarioComponent } from './components/guardarusuario/guardarusuario.component';
 //2. lo que se hace para conectar las rutas de cada component, esto es lo segundo que se hace, lo primero es \
 /// hacer el home, de donde se redirige cada enlace, es decir lo del HTML
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path:'contacto',component:ContactoComponent},
   {path:'pelicula/:id',component:DetallepeliculaComponent},
   {path:'editar-pelicula/:id',component:EditarpeliculaComponent},
+  {path:'guardar-usuario',component:GuardarusuarioComponent},
+  {path:'login',component:LoginComponent},
   {path:'**',component:HomeComponent},//si existe cualquier enlace sin ruta, se ira home
 ];
 //es

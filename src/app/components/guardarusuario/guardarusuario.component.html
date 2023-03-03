@@ -1,0 +1,47 @@
+<div class="container">
+    <h2>{{titulo}}</h2>
+    <div class="message success" *ngIf="status=='success'">
+        Usuario registrado con exito, <a [routerLink]="['/inicio']">regresar</a>.
+    </div>
+    <div class="message failed" *ngIf="status=='failed'">
+        El usuario no se ha podido guardar.
+    </div>
+    <form #usuarioForm="ngForm" (ngSubmit)="guardarUsuario(usuarioForm)">
+        <p>
+            <label for="user">Usuario</label>
+            <input type="text" name="user" #user="ngModel" [(ngModel)]="usuario.user" required>
+            <span *ngIf="user.touched && !user.valid">
+                Usuario obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="password">Contraseña</label>
+            <input type="text" name="password" #password="ngModel" [(ngModel)]="usuario.password" required>
+            <span *ngIf="password.touched && !password.valid">
+                Usuario obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre" required>
+            <span *ngIf="nombre.touched && !nombre.valid">
+                Usuario obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="apellido">Apellido</label>
+            <input type="text" name="apellido" #apellido="ngModel" [(ngModel)]="usuario.apellido" required>
+            <span *ngIf="apellido.touched && !apellido.valid">
+                Usuario obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="imagen">Imagen</label>
+            <span *ngIf="usuario.imagen" style="float: none;">
+                <img src="{{url+'get-imagen/'+usuario.imagen}}" style="width: 100px;">
+            </span>
+            <input type="file" #archivoImagen placeholder="Seleccionar imagen" (change)="imagenChangeEvent($event)">
+        </p>
+        <input type="submit" value="Guardar" [disabled]="!usuarioForm.form.valid">
+    </form>
+</div>

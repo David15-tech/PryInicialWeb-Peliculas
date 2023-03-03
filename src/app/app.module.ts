@@ -12,7 +12,9 @@ import { HomeComponent } from './components/home/home.component';
 import { EncabezadoComponent } from './components/encabezado/encabezado.component';
 import { PieComponent } from './components/pie/pie.component';
 import { HttpClientModule } from '@angular/common/http';//import 1
-import { FormsModule } from '@angular/forms';// import 2
+import { FormsModule } from '@angular/forms';
+import { GuardarusuarioComponent } from './components/guardarusuario/guardarusuario.component';// import 2
+import { LoginComponent } from './components/login/login.component';
 //agregar algunos protocolos pa conectar al 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { FormsModule } from '@angular/forms';// import 2
     HomeComponent,
     EncabezadoComponent,
     PieComponent,
+    LoginComponent,
+    GuardarusuarioComponent,
   ],
   imports: [
     BrowserModule,
